@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  honeypot:
+    build: .
+    container_name: ai-honeypot
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://honeypot:honeypot@db:5432/honeypotdb
+  db:
+    image: postgres:14
+    container_name: honeypot-db
+    restart: always
+    environment:
+      POSTGRES_USER: honeypot
+      POSTGRES_PASSWORD: honeypot
+      POSTGRES_DB: honeypotdb
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    container_name: honeypot-adminer
+    restart: always
+    ports:
+      - "8080:8080"
+volumes:
+  db_data:

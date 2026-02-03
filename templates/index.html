@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Honeypot</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/favicon.ico">
+
+</head>
+
+<body>
+    <h1>AI Honeypot System</h1>
+
+    <form action="/web-handoff" method="post">
+        <label for="message">Enter suspicious message:</label><br><br>
+
+        <textarea name="message" rows="5" cols="50"
+                  placeholder="Paste suspicious message here..."></textarea>
+
+        <br><br>
+        <button type="submit">Analyze</button>
+    </form>
+</body>
+</html>
